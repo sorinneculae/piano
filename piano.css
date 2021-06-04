@@ -1,0 +1,49 @@
+#piano {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  opacity: .6;
+}
+
+.octave {
+  display: flex;
+}
+
+.octave-tones {
+  display: flex;
+}
+
+.octave-semitones {
+  display: flex;
+  position: absolute;
+}
+
+
+.tone {
+  width: 25px;
+  height: 130px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.semitone {
+  width: 26px;
+  height: 80px;
+  background-color: black;
+  border: 1px solid #ccc;
+}
+
+.semitone:nth-child(1) {
+  margin-left: 13px;
+}
+
+
+
+.semitone:nth-child(3) {
+  margin-left: 26px;
+}
+
+.key-active {
+  background-color: chocolate;
+}

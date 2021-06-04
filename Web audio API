@@ -1,0 +1,116 @@
+Web audio API
+
+  What's the need for Web audio API?
+
+  Web Audio Scenarios
+
+    # the need for this in 2020
+    Video Chat Application
+    3D game with music and convincing sound effects
+    Online music production tool
+    Online radio broadcast
+    Music Creation Environment with Sampled Instruments
+    Connected DJ booth
+    Podcast on a flight
+    Web-based guitar practice service
+
+  
+  --------------------------------------------------------------------
+  
+  
+  Wireframe / baseline / foundation
+    to many libraries
+    to your own library
+
+  https://www.w3.org/TR/webaudio-usecases/
+  https://www.w3.org/TR/webaudio/#introductory
+
+
+  --------------------------------------------------------------------
+
+
+  Audio on the web
+    primitive up to this point 
+    new stuff added in Flash and QuickTime
+    introduction of the <audio> in HTML5 - basic streaming audio playback
+    not enough for more complex audio applications, web-based games, interactive applications
+    need for modern game audio engines, mixing, processing, filtering like in desktop audio production applications
+
+  
+  --------------------------------------------------------------------
+
+  
+  W3C Audio Working Group
+    2011 draft to "support the features required by advanced interactive applications including the ability to process and synthesize audio"
+    allows developers to create audio software on the open web
+    add great sound to web games
+    to reinvent the world of audio and music by making it more connected, linked and social
+
+  
+  --------------------------------------------------------------------
+
+  
+  First paradigm
+    audio routing graph
+    AudioNode objects are connected together to define the overall audio rendering
+    inputs(e.g. oscillators) ---> effects(e.g. gain) ---> filters ---> destinations
+    
+
+  --------------------------------------------------------------------
+  
+  
+  Oscillator
+    a sound generator
+    it creates sound by being given a frequency
+    sound is created through waves in the air
+    the frequency dictates how tight or loose the sound wave will be
+    sound !== volume
+
+
+  --------------------------------------------------------------------
+
+
+  Frequency
+    432 vs 440 // A4 La
+    https://www.youtube.com/watch?v=8Ze44-Ppj-c&ab_channel=ChordsOfOrion
+    https://en.wikipedia.org/wiki/A440_(pitch_standard)
+    https://www.izotope.com/en/learn/tuning-standards-explained.html
+
+
+  --------------------------------------------------------------------
+
+
+  How this(Web Audio API) works
+
+    Create audio context
+    Inside the context, create sources — such as <audio>, oscillator, stream
+    Create effects nodes, such as reverb, biquad filter, panner, compressor
+    Choose final destination of audio, for example your system speakers
+    Connect the sources up to the effects, and the effects to the destination.
+
+
+  --------------------------------------------------------------------
+  
+
+  Tone.js
+
+    and audio in general in browser - need user action / input
+    you have to interact with browser
+
+    in tone js we have to connect things together
+    sound chain - Tone.Master (our speakers) // 
+    connect to Tone.Master
+    eg: 	  osc = new Tone.Oscillator() // - default is 440Hz - A4
+            osc.connect(Tone.Master)
+
+    inputs(e.g. oscillators) ---> effects(e.g. gain) ---> destinations
+
+    every obj has .toDestination() that is a shorthand for connect(Tone.Master);
+      you can see it use it, you can also chain the .toDestination();
+
+    Tone.master.volume - is a signal / is an object
+      you can animate it overtime -- .rampTo(-30, 2) // v, seconds
+
+
+
+
